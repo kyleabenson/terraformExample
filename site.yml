@@ -2,10 +2,11 @@
 - name: Deploy terraform project
   hosts: localhost
   tasks:
+  - name: Initialize terraform project
+    shell: terraform init ./project
+
   - name: Build terraform deployment
-    shell: terraform plan
-    args:
-      chdir: './project/'
+    shell: terraform plan ./project
 
   - name: Deployment
     terraform:
