@@ -84,14 +84,12 @@
         public_ip_allocation_method: Disabled
         network_interfaces: "nic{{item}}"
         admin_username: "{{ admin_user }}"
+        admin_password: "{{admin_password}}"
         vm_size: Standard_DS1_v2
         open_ports: 
          - 80
          - 22
-        ssh_password_enabled: false
-        ssh_public_keys:
-          - path: "/home/{{ admin_user }}/.ssh/authorized_keys"
-            key_data: "{{ssh_pub_key}}"
+        ssh_password_enabled: true
         image:
             offer: "{{ azure_image_details.offer }}"
             publisher: "{{ azure_image_details.publisher }}"
@@ -114,12 +112,10 @@
         resource_group: "{{ azure_resource_group }}"
         name: jumpVM
         admin_username: "{{ admin_user }}"
+        admin_password: "{{admin_password}}"
         public_ip_allocation_method: Static
         vm_size: Standard_DS1_v2
-        ssh_password_enabled: false
-        ssh_public_keys:
-          - path: "/home/{{ admin_user }}/.ssh/authorized_keys"
-            key_data: "{{ssh_pub_key}}"
+        ssh_password_enabled: true
         image:
             offer: "{{ azure_image_details.offer }}"
             publisher: "{{ azure_image_details.publisher }}"
@@ -132,11 +128,9 @@
         name: appLayerVm
         public_ip_allocation_method: Disabled
         admin_username: "{{ admin_user }}"
+        admin_password: "{{admin_password}}"
         vm_size: Standard_DS1_v2
-        ssh_password_enabled: false
-        ssh_public_keys:
-          - path: "/home/{{ admin_user }}/.ssh/authorized_keys"
-            key_data: "{{ssh_pub_key}}"
+        ssh_password_enabled: true
         image:
             offer: "{{ azure_image_details.offer }}"
             publisher: "{{ azure_image_details.publisher }}"
