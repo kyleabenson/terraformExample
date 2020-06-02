@@ -3,10 +3,13 @@
   hosts: localhost
   tasks:
   - name: Initialize terraform project
-    shell: terraform init ./project
-
+    shell: terraform init
+    args:
+      chdir: ./project
   - name: Build terraform deployment
-    shell: terraform plan ./project
+    shell: terraform plan
+    args:
+      chdir: ./project
 
   - name: Deployment
     terraform:
