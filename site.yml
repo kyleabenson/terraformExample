@@ -5,7 +5,7 @@
   - name: Build terraform deployment
     shell: terraform plan
     args:
-      chrdir: './project/'
+      chdir: './project/'
 
   - name: Deployment
     terraform:
