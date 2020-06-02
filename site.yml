@@ -2,6 +2,11 @@
 - name: Deploy terraform project
   hosts: localhost
   tasks:
+  - name: Build terraform deployment
+    shell: terraform plan
+    args:
+      chrdir: './project/'
+
   - name: Deployment
     terraform:
       project_path: './project/'
