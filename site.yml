@@ -2,16 +2,8 @@
 - name: Deploy terraform project
   hosts: localhost
   tasks:
-  - name: Initialize terraform project
-    shell: terraform init
-    args:
-      chdir: ./project
-  - name: Build terraform deployment
-    shell: terraform plan
-    args:
-      chdir: ./project
-
   - name: Deployment
     terraform:
       project_path: './project/'
       state: present
+      force_init: yes
