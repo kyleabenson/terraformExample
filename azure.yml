@@ -95,7 +95,6 @@
             publisher: "{{ azure_image_details.publisher }}"
             sku: "{{ azure_image_details.sku }}"
             version: "{{ azure_image_details.version }}"
-        custom_data: "{{ lookup('file', 'cloud-init.txt') }}"
       with_items:
        - 1
        - 2
